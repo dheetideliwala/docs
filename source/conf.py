@@ -63,7 +63,7 @@ html_theme = 'sphinx_material'
 html_title = "Dheeti's Docs"
 html_theme_options = {
     "repo_url": "https://github.com/dheetideliwala/docs/",
-    "nav_title": "Content",
+    "nav_title": "Table of Content",
     'color_primary': 'indigo',
     'color_accent': 'blue',
     "html_minify": False,

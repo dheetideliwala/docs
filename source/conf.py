@@ -14,6 +14,7 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+import sphinx_material
 
 # -- Project information -----------------------------------------------------
 
@@ -59,6 +60,7 @@ source_suffix = {
 # a list of builtin themes.
 #
 html_theme = 'sphinx_material'
+html_title = "Dheeti's Docs"
 html_theme_options = {
     "repo_url": "https://github.com/dheetideliwala/docs/",
     'color_primary': 'indigo',

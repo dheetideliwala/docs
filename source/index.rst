@@ -7,10 +7,11 @@ Welcome to d2d's documentation!
 ===============================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :caption: Build Tools:
 
-
+   git.md
+   gradle.md
 
 Indices and tables
 ==================

@@ -85,6 +85,37 @@
   doc/**/*.pdf
   ```
 
+### My experiment
+
+```bash
+# create a remote repo sample 
+git clone <repo address>
+touch <filename>
+# add files to be tracked
+git add <filename>
+# add files to be committed
+git commit -m "message"
+# push files to remote
+git push
+# see the status of all the files
+git status
+
+# create a branch under main
+git branch <branchname>
+# move to new branch
+git branch checkout <branchname>
+# see the branches, and current branch in green
+git branch
+# merge new branch into current branch
+git branch merge <branch to be merged>
+# delete branch on local
+git branch -d <branchname>
+# delete branch on remore
+git push origin --delete <branchname>
+```
+
+
+
 ### Working with local
 
 >  This assumes that you do not have a remote repo on github.com. You are just using git on your local.

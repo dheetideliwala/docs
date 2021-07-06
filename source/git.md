@@ -240,30 +240,24 @@ git push origin --delete old_branch_name # delete old branch on remote
 # delete branch
 git branch -d my-branch # local
 git push <remotename>:<branchname> # remote
-git push origin :my-branch 	# remote
-git push origin :branch1 :branch2 :branch3
+git push origin:my-branch 	# remote
+git push origin:branch1 :branch2 :branch3
 
 # create a branch and push to remote
- git checkout -b my-branch	# create branch and switch to it
+git checkout -b my-branch	# create branch and switch to it
 
 # make changes, git add, git commit -m etc...
 # push the branch to remote for others to see
- git push <remotename> <branchname> # first time
- git push -u origin my-branch <can be master>
+git push <remotename> <branchname> # first time
+git push -u origin my-branch <can be master>
 
 # remote branches
- git ls-remote <remote> # list of remote branches
- git remote show <remote>
+git ls-remote <remote> # list of remote branches
+git remote show <remote>
 
 # synchronize local from remote, will only change S, not WD
 git fetch <remote>
 git fetch origin
-
-# synchronize local from remote, change S and WD
-git pull
-# same as
-git fetch
-git merge
 
 # push branch to remote
 git push <remote> <local_branch>
@@ -276,24 +270,11 @@ git checkout -b copy_of_my_branch origin/my_branch # now has a local branch
 # delete remote branch
 git push origin --delete mybranch
 
-# drop all changes in local
-git fetch origin # fetch latest
-git reset --hard origin/master # switch local master to it
-
-# replace some local changes, not everything
-git checkout --<filename>
-
 # copies last commit to both Staging and WD
 git checkout HEAD -- files
 
-# switches Working directory  and Staging to last commit in HEAD
-git checkout HEAD
-
 # pushing local dev branch to master
 git push origin dev:master
-
-# update local with newest commit
-git pull # this does fetch and merge
 
 #merge another branch to your branch
 git merge <branch>
@@ -496,7 +477,7 @@ git commit -m
 You realize that you don’t want to keep your changes to the `file-b `? How can you revert it back to what it looked like when you last committed
 
 ```bash
-git checkout -- file-b
+git checkout --<file-b>
 ```
 
 #### Undo commits permanently
@@ -507,6 +488,13 @@ git commit ... # mistake(s)
 git reset --hard HEAD~3
 ```
 
+#### Drop all changes in local
+
+```bash
+git fetch origin # fetch latest
+git reset --hard origin/master # switch local master to it
+```
+
 #### Undo a commit and redo
 
 ```bash
@@ -514,6 +502,18 @@ git commit ... # mistake
 git reset --soft HEAD^
 # make the edits
 git commit -a -c ORIG_HEAD
+```
+
+#### Update local with latest on remote
+
+```bash
+git pull # this does fetch and merge
+# same as
+git fetch
+git merge
+
+# switches Working directory and Staging to last commit in HEAD
+git checkout HEAD
 ```
 
 #### Squashing commits

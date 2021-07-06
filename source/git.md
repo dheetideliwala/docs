@@ -34,9 +34,12 @@
 
 - `origin/master `: a remote tracking branch on local. It is hidden and is supposed to stay in sync with `master ` on remote `origin `. Tracking branch is a local branch that has a direct relationship to a remote branch. If you are on a tracking branch, the `git pull` knows which server to fetch from and which branch to merge in.
 
+- Git has a staging area! There is both a repo and a staging area (also called index)
+
 - Working directory -> Staging -> Head.
 
   - `add ` updates Staging from the working directory.
+  - `commit` puts staging into the local copy of the repo.
   - `reset ` overrides Staging with last commit on Head. You undo an `add `with a `reset `.
   - `checkout ` overwrites working directory with a copy from staging. You undo an edit with `checkout `.
 
@@ -99,7 +102,11 @@ git status # shows which files changed in working directory compared to staging
 git status -s # short version
 
 # add all changes from working directory to staging
-git add .  
+git add . # will only add files in current directory
+git add <file-1> <file-2> <file-3> # you can add multiple files
+git add -all # includes updated tracked files everywhere as well as new files everywhere
+git add -A # includes updated tracked files and new files
+git add --update # includes updated tracked files only, not new files
 git add -i # interactive
 
 # commit - creates a snapshot inside the staging
@@ -141,7 +148,7 @@ git remote add origin https://your.remote.git
 git remote add upstream https://original.repo.git
 
 # Commands below are same. They create the remote tracking branch on local
-git push -u origin master
+git push -u origin master # -u is neccessary the first time, and subsequently just git push
 git push --set-upstream origin master
 
 # example: setup upstream branch using git push
@@ -448,7 +455,12 @@ If you commit and then realize that you forgot to stage the changes in a file yo
 ```bash
 git commit -m 'Initial commit' # some file(s) forgotten.
 git add <forgotten_files>
-git commit --amend
+git commit --amend -m
+
+#or undo the last commit
+git reset --soft Head^
+git add .
+git commit -m
 ```
 
 #### Unstage a staged file
